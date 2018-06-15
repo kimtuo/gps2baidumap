@@ -11,6 +11,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Geolocation } from '@ionic-native/geolocation';
+
+import { BaiduMapModule } from 'angular2-baidu-map';
+import { baiduPoint } from '../lib/gps2baidu';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,6 +26,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    BaiduMapModule.forRoot({ ak: 'dfzLR6qGXLk5Qz2ejlfD6f6cjALueUpg' }),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +40,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    baiduPoint,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
